@@ -46,9 +46,9 @@ class TagGrid extends StatelessWidget {
 
     return GridView.count(
       crossAxisCount: columnCount,
-      padding: EdgeInsets.all(10),
-      mainAxisSpacing: 10,
-      crossAxisSpacing: 10,
+      padding: EdgeInsets.all(24),
+      mainAxisSpacing: 12,
+      crossAxisSpacing: 12,
       children: tagButtons,
     );
   }
