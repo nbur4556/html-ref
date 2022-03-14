@@ -8,8 +8,6 @@ class Detailpage extends StatelessWidget {
     final TagArguments args =
         ModalRoute.of(context)!.settings.arguments as TagArguments;
 
-    print(args.tagName);
-
     return Scaffold(
       appBar: AppBar(
         title: Text(args.tagName),
