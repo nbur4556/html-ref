@@ -68,7 +68,7 @@ class TagButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return OutlinedButton(
+    return ElevatedButton(
       onPressed: () => handleRoute(context),
       child: Text('<$tagName>'),
     );
