@@ -5,7 +5,13 @@ class Detailpage extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text('Hello Page'),
+      appBar: AppBar(
+        title: Text('Tag Details'),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Text('Tag Details'),
+      ),
     );
   }
 }
