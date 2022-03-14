@@ -10,18 +10,20 @@ class Homepage extends StatelessWidget {
     return json.decode(data);
   }
 
+  Widget buildWithData(BuildContext context, AsyncSnapshot snapshot) {
+    if (snapshot.connectionState == ConnectionState.done) {
+      return TagGrid(snapshot.data as List<dynamic>);
+    } else {
+      return Center(child: CircularProgressIndicator());
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: FutureBuilder(
         future: loadData(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            return TagGrid(snapshot.data as List<dynamic>);
-          } else {
-            return Center(child: CircularProgressIndicator());
-          }
-        },
+        builder: (context, snapshot) => buildWithData(context, snapshot),
       ),
     );
   }
