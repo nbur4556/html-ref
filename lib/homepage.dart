@@ -12,22 +12,38 @@ class Homepage extends StatelessWidget {
 }
 
 class TagGrid extends StatelessWidget {
+  final int columnCount = 3;
   TagGrid({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GridView.count(
-      crossAxisCount: 2,
+      crossAxisCount: columnCount,
       children: [
-        OutlinedButton(
-          onPressed: () => print('test'),
-          child: Text('<Tag>'),
-        ),
-        OutlinedButton(
-          onPressed: () => print('test'),
-          child: Text('<Tag>'),
-        )
+        TagButton('!DOCTYPE'),
+        TagButton('html'),
+        TagButton('head'),
+        TagButton('title'),
+        TagButton('body'),
+        TagButton('h1'),
+        TagButton('p'),
+        TagButton('br'),
+        TagButton('hr'),
+        TagButton('!--...--'),
       ],
+    );
+  }
+}
+
+class TagButton extends StatelessWidget {
+  final String tagName;
+  TagButton(this.tagName, {Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return OutlinedButton(
+      onPressed: () => print('test'),
+      child: Text('<$tagName>'),
     );
   }
 }
