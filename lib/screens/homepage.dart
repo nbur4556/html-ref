@@ -46,6 +46,9 @@ class TagGrid extends StatelessWidget {
 
     return GridView.count(
       crossAxisCount: columnCount,
+      padding: EdgeInsets.all(24),
+      mainAxisSpacing: 12,
+      crossAxisSpacing: 12,
       children: tagButtons,
     );
   }
@@ -65,7 +68,7 @@ class TagButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return OutlinedButton(
+    return ElevatedButton(
       onPressed: () => handleRoute(context),
       child: Text('<$tagName>'),
     );

@@ -15,6 +15,18 @@ class App extends StatelessWidget {
         '/': (context) => Homepage(),
         '/details': (context) => Detailpage(),
       },
+      theme: ThemeData(
+        primaryColor: Colors.deepPurple[900],
+        scaffoldBackgroundColor: Colors.grey[50],
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.deepPurple[900],
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(Colors.deepPurple[900]),
+          ),
+        ),
+      ),
     );
   }
 }
