@@ -12,11 +12,11 @@ class Detailpage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('args.tagName'),
+        title: Text(args.tagName),
         centerTitle: true,
       ),
       body: Center(
-        child: Text('args.tagName'),
+        child: Text(args.tagName),
       ),
     );
   }
