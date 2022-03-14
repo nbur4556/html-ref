@@ -57,7 +57,9 @@ class TagButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OutlinedButton(
-      onPressed: () => print('test'),
+      onPressed: () {
+        Navigator.pushNamed(context, '/details');
+      },
       child: Text('<$tagName>'),
     );
   }
