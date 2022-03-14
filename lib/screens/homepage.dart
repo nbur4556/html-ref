@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../types/tag_arguments.dart';
 
 class Homepage extends StatelessWidget {
   Homepage({Key? key}) : super(key: key);
@@ -54,12 +55,18 @@ class TagButton extends StatelessWidget {
   final String tagName;
   TagButton(this.tagName, {Key? key}) : super(key: key);
 
+  void handleRoute(BuildContext context) {
+    Navigator.pushNamed(
+      context,
+      '/details',
+      arguments: TagArguments(tagName),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return OutlinedButton(
-      onPressed: () {
-        Navigator.pushNamed(context, '/details');
-      },
+      onPressed: () => handleRoute(context),
       child: Text('<$tagName>'),
     );
   }
