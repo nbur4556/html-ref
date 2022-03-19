@@ -1,31 +1,14 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import '../types/tag_arguments.dart';
 
 class Homepage extends StatelessWidget {
-  Homepage({Key? key}) : super(key: key);
-
-  Future<List<dynamic>> loadData() async {
-    dynamic data = await rootBundle.loadString('assets/text_assets/data.json');
-    return json.decode(data);
-  }
-
-  Widget buildWithData(BuildContext context, AsyncSnapshot snapshot) {
-    if (snapshot.connectionState == ConnectionState.done) {
-      return TagGrid(snapshot.data as List<dynamic>);
-    } else {
-      return Center(child: CircularProgressIndicator());
-    }
-  }
+  final List<dynamic> tagData;
+  Homepage(this.tagData, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: FutureBuilder(
-        future: loadData(),
-        builder: (context, snapshot) => buildWithData(context, snapshot),
-      ),
+      body: TagGrid(tagData),
     );
   }
 }
@@ -41,7 +24,7 @@ class TagGrid extends StatelessWidget {
     List<Widget> tagButtons = <Widget>[];
 
     data.forEach((tag) {
-      tagButtons.add(TagButton(tag));
+      tagButtons.add(TagButton(tag.tagName));
     });
 
     return GridView.count(

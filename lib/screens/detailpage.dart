@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import '../types/tag_arguments.dart';
 
 class Detailpage extends StatelessWidget {
-  Detailpage({Key? key}) : super(key: key);
+  List<dynamic> tagData;
+  Detailpage(this.tagData, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
