@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'screens/homepage.dart';
 import 'screens/detailpage.dart';
+import 'db/db.dart';
 
-void main() => runApp(App());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  final Database db = new Database();
+  db.open();
+  runApp(App());
+}
 
 class App extends StatelessWidget {
   App({Key? key}) : super(key: key);
