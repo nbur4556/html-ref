@@ -10,11 +10,11 @@ class Detailpage extends StatelessWidget {
     final TagArguments args =
         ModalRoute.of(context)!.settings.arguments as TagArguments;
 
-    final String tagName = args.tagName;
+    final int id = args.id;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('<$tagName>'),
+        title: Text('<$id>'),
         centerTitle: true,
       ),
       body: DetailContent(),

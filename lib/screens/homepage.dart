@@ -24,7 +24,7 @@ class TagGrid extends StatelessWidget {
     List<Widget> tagButtons = <Widget>[];
 
     data.forEach((tag) {
-      tagButtons.add(TagButton(tag.tagName));
+      tagButtons.add(TagButton(tag.tagName, tag.id));
     });
 
     return GridView.count(
@@ -39,13 +39,14 @@ class TagGrid extends StatelessWidget {
 
 class TagButton extends StatelessWidget {
   final String tagName;
-  TagButton(this.tagName, {Key? key}) : super(key: key);
+  final int id;
+  TagButton(this.tagName, this.id, {Key? key}) : super(key: key);
 
   void handleRoute(BuildContext context) {
     Navigator.pushNamed(
       context,
       '/details',
-      arguments: TagArguments(tagName),
+      arguments: TagArguments(id),
     );
   }
 
