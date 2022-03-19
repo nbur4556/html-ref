@@ -9,4 +9,11 @@ class RefTag {
       required this.tagName,
       required this.description,
       this.attributes});
+
+  Map toMap() => {
+        'id': this.id,
+        'tag_name': this.tagName,
+        'description': this.description,
+        'attributes': this.attributes
+      };
 }
