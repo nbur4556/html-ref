@@ -3,10 +3,19 @@ import 'screens/homepage.dart';
 import 'screens/detailpage.dart';
 import 'db/db.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize Database
   final Database db = new Database();
-  db.insert();
+  List tags = await db.getAllRefTags();
+
+  tags.forEach((tag) {
+    print(tag.id);
+    print(tag.tagName);
+    print(tag.description);
+    print(tag.attributes);
+  });
 
   runApp(App());
 }
