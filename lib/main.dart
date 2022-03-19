@@ -6,7 +6,8 @@ import 'db/db.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   final Database db = new Database();
-  db.open();
+  db.insert();
+
   runApp(App());
 }
 

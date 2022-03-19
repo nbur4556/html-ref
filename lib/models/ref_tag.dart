@@ -10,7 +10,7 @@ class RefTag {
       required this.description,
       this.attributes});
 
-  Map toMap() => {
+  Map<String, dynamic> toMap() => {
         'id': this.id,
         'tag_name': this.tagName,
         'description': this.description,
