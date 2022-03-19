@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:html_ref/models/ref_tag.dart';
 import 'screens/homepage.dart';
 import 'screens/detailpage.dart';
 import 'db/db.dart';
@@ -9,13 +10,13 @@ void main() async {
   // Initialize Database
   final Database db = new Database();
   db.initializeDb();
-  List tagData = await db.getAllRefTags();
+  List<RefTag> tagData = await db.getAllRefTags();
 
   runApp(App(tagData));
 }
 
 class App extends StatelessWidget {
-  List<dynamic> tagData;
+  List<RefTag> tagData;
 
   App(this.tagData, {Key? key}) : super(key: key);
 
