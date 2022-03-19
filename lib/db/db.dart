@@ -1,3 +1,5 @@
+import 'dart:convert';
+import 'package:flutter/services.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
@@ -11,6 +13,8 @@ class Database {
 
   // Return an opened database
   Future<dynamic> open() async {
+    dynamic sqlData = await rootBundle.loadString('assets/seed.sql');
+
     return openDatabase(
       join(await getDatabasesPath(), '$_dbName.db'),
       version: _dbVersion,
@@ -19,12 +23,15 @@ class Database {
             'CREATE TABLE $_dbTable(id INTEGER PRIMARY KEY, tag_name TEXT, description TEXT, attributes TEXT)');
 
         // Initial data
-        await db.rawInsert(
-            'INSERT INTO $_dbTable (id, tag_name, description, attributes) VALUES(3, "Test 3", "Test Description", "Test Attributes")');
+        LineSplitter().convert(sqlData).forEach((cmd) async {
+          print(cmd);
+          await db.rawInsert(cmd);
+        });
       },
     );
   }
 
+  // Delete Database
   Future<void> dropDatabase() async {
     databaseFactory
         .deleteDatabase(join(await getDatabasesPath(), '$_dbName.db'));
