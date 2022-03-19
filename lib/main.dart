@@ -8,7 +8,7 @@ void main() async {
 
   // Initialize Database
   final Database db = new Database();
-  db.dropDatabase();
+  db.initializeDb();
   List tags = await db.getAllRefTags();
 
   tags.forEach((tag) {

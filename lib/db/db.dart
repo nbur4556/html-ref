@@ -32,9 +32,11 @@ class Database {
   }
 
   // Delete Database
-  Future<void> dropDatabase() async {
+  Future<void> initializeDb() async {
+    //TODO: Only drop and recreate database on empty database or new seed data
     databaseFactory
         .deleteDatabase(join(await getDatabasesPath(), '$_dbName.db'));
+    await this.open();
   }
 
   // Insert RefTag into database
