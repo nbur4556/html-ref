@@ -14,9 +14,20 @@ class Database {
     return openDatabase(
       join(await getDatabasesPath(), '$_dbName.db'),
       version: _dbVersion,
-      onCreate: (db, version) => db.execute(
-          'CREATE TABLE $_dbTable(id INTEGER PRIMARY KEY, tag_name TEXT, description TEXT, attributes TEXT)'),
+      onCreate: (db, version) async {
+        await db.execute(
+            'CREATE TABLE $_dbTable(id INTEGER PRIMARY KEY, tag_name TEXT, description TEXT, attributes TEXT)');
+
+        // Initial data
+        await db.rawInsert(
+            'INSERT INTO $_dbTable (id, tag_name, description, attributes) VALUES(3, "Test 3", "Test Description", "Test Attributes")');
+      },
     );
+  }
+
+  Future<void> dropDatabase() async {
+    databaseFactory
+        .deleteDatabase(join(await getDatabasesPath(), '$_dbName.db'));
   }
 
   // Insert RefTag into database
