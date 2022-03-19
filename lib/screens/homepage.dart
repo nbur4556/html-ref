@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:html_ref/models/ref_tag.dart';
 import '../types/tag_arguments.dart';
 
 class Homepage extends StatelessWidget {
-  final List<dynamic> tagData;
+  final List<RefTag> tagData;
   Homepage(this.tagData, {Key? key}) : super(key: key);
 
   @override
@@ -15,7 +16,7 @@ class Homepage extends StatelessWidget {
 
 class TagGrid extends StatelessWidget {
   final int columnCount = 3;
-  final List<dynamic> data;
+  final List<RefTag> data;
 
   TagGrid(this.data, {Key? key}) : super(key: key);
 
