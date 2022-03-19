@@ -1,28 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:html_ref/models/ref_tag.dart';
 import '../types/tag_arguments.dart';
 
 class Detailpage extends StatelessWidget {
-  Detailpage({Key? key}) : super(key: key);
+  List<RefTag> tagData;
+  Detailpage(this.tagData, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final TagArguments args =
         ModalRoute.of(context)!.settings.arguments as TagArguments;
 
-    final String tagName = args.tagName;
+    final int id = args.id;
+    final RefTag tag = tagData[id];
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('<$tagName>'),
+        title: Text('<' + tag.tagName + '>'),
         centerTitle: true,
       ),
-      body: DetailContent(),
+      body: DetailContent(tag),
     );
   }
 }
 
 class DetailContent extends StatelessWidget {
-  DetailContent({Key? key}) : super(key: key);
+  RefTag tag;
+  DetailContent(this.tag, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +34,8 @@ class DetailContent extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
       children: [
-        DetailTextSection(
-            'DETAILS: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'),
-        DetailTextSection(
-            'ATTRIBUTES: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'),
+        DetailTextSection(tag.description),
+        DetailTextSection(tag.attributes),
       ],
     );
   }

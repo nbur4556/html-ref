@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:html_ref/models/ref_tag.dart';
 import 'screens/homepage.dart';
 import 'screens/detailpage.dart';
 import 'db/db.dart';
@@ -9,28 +10,23 @@ void main() async {
   // Initialize Database
   final Database db = new Database();
   db.initializeDb();
-  List tags = await db.getAllRefTags();
+  List<RefTag> tagData = await db.getAllRefTags();
 
-  tags.forEach((tag) {
-    print(tag.id);
-    print(tag.tagName);
-    print(tag.description);
-    print(tag.attributes);
-  });
-
-  runApp(App());
+  runApp(App(tagData));
 }
 
 class App extends StatelessWidget {
-  App({Key? key}) : super(key: key);
+  List<RefTag> tagData;
+
+  App(this.tagData, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       initialRoute: '/',
       routes: {
-        '/': (context) => Homepage(),
-        '/details': (context) => Detailpage(),
+        '/': (context) => Homepage(tagData),
+        '/details': (context) => Detailpage(tagData),
       },
       theme: ThemeData(
         primaryColor: Colors.deepPurple[900],

@@ -1,4 +1,4 @@
 class TagArguments {
-  final String tagName;
-  TagArguments(this.tagName);
+  final int id;
+  TagArguments(this.id);
 }
