@@ -3,6 +3,7 @@ import 'package:html_ref/models/ref_tag.dart';
 import 'screens/homepage.dart';
 import 'screens/detailpage.dart';
 import 'db/db.dart';
+import './styles/app_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,18 +29,7 @@ class App extends StatelessWidget {
         '/': (context) => Homepage(tagData),
         '/details': (context) => Detailpage(tagData),
       },
-      theme: ThemeData(
-        primaryColor: Colors.deepPurple[900],
-        scaffoldBackgroundColor: Colors.grey[50],
-        appBarTheme: AppBarTheme(
-          backgroundColor: Colors.deepPurple[900],
-        ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(Colors.deepPurple[900]),
-          ),
-        ),
-      ),
+      theme: AppThemeData(),
     );
   }
 }

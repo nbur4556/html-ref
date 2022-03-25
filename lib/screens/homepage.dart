@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:html_ref/models/ref_tag.dart';
 import '../types/tag_arguments.dart';
 
+// Styles
+import '../styles/tagbutton_style.dart';
+
 class Homepage extends StatelessWidget {
   final List<RefTag> tagData;
   Homepage(this.tagData, {Key? key}) : super(key: key);
@@ -33,6 +36,7 @@ class TagGrid extends StatelessWidget {
       padding: EdgeInsets.all(24),
       mainAxisSpacing: 12,
       crossAxisSpacing: 12,
+      childAspectRatio: 2.5,
       children: tagButtons,
     );
   }
@@ -56,6 +60,7 @@ class TagButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: () => handleRoute(context),
       child: Text('<$tagName>'),
+      style: TagButtonStyle(20.0),
     );
   }
 }

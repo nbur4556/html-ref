@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:html_ref/models/ref_tag.dart';
 import '../types/tag_arguments.dart';
+import '../styles/font_styles.dart';
 
 class Detailpage extends StatelessWidget {
   List<RefTag> tagData;
@@ -34,22 +35,47 @@ class DetailContent extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
       children: [
-        DetailTextSection(tag.description),
-        DetailTextSection(tag.attributes),
+        Center(child: DetailTextSection(tag.description)),
+        Center(
+            child: DetailTextSection(tag.attributes, heading: 'Attributes: ')),
       ],
     );
   }
 }
 
 class DetailTextSection extends StatelessWidget {
+  String heading = '';
   String content;
-  DetailTextSection(this.content, {Key? key}) : super(key: key);
+  DetailTextSection(this.content, {String heading = '', Key? key})
+      : super(key: key) {
+    this.heading = heading;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(20),
-      child: Text(content),
+    return SizedBox(
+      width: 450,
+      child: Card(
+        margin: EdgeInsets.all(24.0),
+        child: Padding(
+          padding: EdgeInsets.all(24.0),
+          child: Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.all(12.0),
+                child: Text(
+                  heading,
+                  style: CardHeadingStyle,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(12.0),
+                child: Text(content),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
