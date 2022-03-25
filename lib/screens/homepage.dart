@@ -33,6 +33,7 @@ class TagGrid extends StatelessWidget {
       padding: EdgeInsets.all(24),
       mainAxisSpacing: 12,
       crossAxisSpacing: 12,
+      childAspectRatio: 2.5,
       children: tagButtons,
     );
   }
@@ -56,6 +57,13 @@ class TagButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: () => handleRoute(context),
       child: Text('<$tagName>'),
+      style: ButtonStyle(
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.0),
+          ),
+        ),
+      ),
     );
   }
 }
