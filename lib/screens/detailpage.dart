@@ -34,22 +34,32 @@ class DetailContent extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
       children: [
-        DetailTextSection(tag.description),
-        DetailTextSection(tag.attributes),
+        Center(child: DetailTextSection(tag.description)),
+        Center(
+            child: DetailTextSection(tag.attributes, heading: 'Attributes: ')),
       ],
     );
   }
 }
 
 class DetailTextSection extends StatelessWidget {
+  String heading = '';
   String content;
-  DetailTextSection(this.content, {Key? key}) : super(key: key);
+  DetailTextSection(this.content, {String heading = '', Key? key})
+      : super(key: key) {
+    this.heading = heading;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(20),
-      child: Text(content),
+    return Card(
+      margin: EdgeInsets.all(24.0),
+      child: Center(
+        child: Padding(
+          padding: EdgeInsets.all(24.0),
+          child: Text('$heading$content'),
+        ),
+      ),
     );
   }
 }
