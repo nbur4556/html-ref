@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:html_ref/models/ref_tag.dart';
 import '../types/tag_arguments.dart';
+import '../styles/font_styles.dart';
 
 class Detailpage extends StatelessWidget {
   List<RefTag> tagData;
@@ -52,12 +53,27 @@ class DetailTextSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      margin: EdgeInsets.all(24.0),
-      child: Center(
+    return SizedBox(
+      width: 450,
+      child: Card(
+        margin: EdgeInsets.all(24.0),
         child: Padding(
           padding: EdgeInsets.all(24.0),
-          child: Text('$heading$content'),
+          child: Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.all(12.0),
+                child: Text(
+                  heading,
+                  style: CardHeadingStyle,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(12.0),
+                child: Text(content),
+              ),
+            ],
+          ),
         ),
       ),
     );
