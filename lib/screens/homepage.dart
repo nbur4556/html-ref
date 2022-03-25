@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:html_ref/models/ref_tag.dart';
 import '../types/tag_arguments.dart';
 
+// Styles
+import '../styles/tagbutton_style.dart';
+
 class Homepage extends StatelessWidget {
   final List<RefTag> tagData;
   Homepage(this.tagData, {Key? key}) : super(key: key);
@@ -57,13 +60,7 @@ class TagButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: () => handleRoute(context),
       child: Text('<$tagName>'),
-      style: ButtonStyle(
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20.0),
-          ),
-        ),
-      ),
+      style: TagButtonStyle(20.0),
     );
   }
 }
