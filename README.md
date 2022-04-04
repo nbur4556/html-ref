@@ -1,16 +1,36 @@
-# html_ref
+<!-- [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) -->
 
-A new Flutter project.
+# HTML Ref
 
-## Getting Started
+## Description
 
-This project is a starting point for a Flutter application.
+HTML ref is a mobile application for quickly referencing HTML tags.
 
-A few resources to get you started if this is your first Flutter project:
+## Table of Contents
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+<!-- * [Installation](#Installation) -->
+<!-- * [Usage](#Usage) -->
+* [Technologies](#Technologies)
+<!-- * [License](#License) -->
+* [Contact](#Contact)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<!-- ## Installation -->
+
+<!-- ## Usage -->
+
+## Technologies
+
+* Dart
+* Flutter
+* SQFlite
+
+<!-- ## License -->
+
+<!-- HTML Ref is licensed under the [MIT](https://opensource.org/licenses/MIT) license. -->
+
+## Contact
+
+Contact me at:
+
+* Github: [https://github.com/nbur4556](https://github.com/nbur4556)
+* Email: nbur4556@gmail.com
